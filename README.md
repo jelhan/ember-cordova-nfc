@@ -1,18 +1,26 @@
 # ember-cordova-nfc
 
-This README outlines the details of collaborating on this Ember addon.
+A service providing access to NFC related events.
+
+Basically ember-cordova-nfc is wrapping [PhoneGap NFC Plugin](https://github.com/chariotsolutions/phonegap-nfc)
+to consume it the ember way. It should be used together with [ember-cordova](http://embercordova.com).
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd ember-cordova-nfc`
-* `npm install`
-* `bower install`
+* `ember install ember-cordova`
+* `ember cdv:plugin phonegap-nfc`
 
-## Running
+## Properties
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+* `available`
+* `enabled`
+
+## Events
+
+* `tagDiscovered`
+* `ndefTagDiscovered`
+* `ndefTagWithMimeTypeDiscovered`
+* `formatableNdefTagDiscovered`
 
 ## Running Tests
 

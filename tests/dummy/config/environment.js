@@ -4,8 +4,8 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'dummy',
     environment: environment,
-    rootURL: '/',
-    locationType: 'auto',
+    rootURL: '',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -34,6 +34,9 @@ module.exports = function(environment) {
   if (environment === 'test') {
     // Testem prefers this...
     ENV.locationType = 'none';
+
+    // ember test throws if rootUrl is empty
+    ENV.rootURL = '/';
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;

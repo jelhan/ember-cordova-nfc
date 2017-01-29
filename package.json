@@ -1,7 +1,7 @@
 {
   "name": "ember-cordova-nfc",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Ember.js service providing access to NFC related events.",
   "keywords": [
     "ember-addon"
   ],
@@ -11,7 +11,7 @@
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/jelhan/ember-cordova-nfc",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
@@ -36,6 +36,8 @@
     "ember-cli-sri": "^2.1.0",
     "ember-cli-test-loader": "^1.1.0",
     "ember-cli-uglify": "^1.2.0",
+    "ember-cordova": "0.4.3",
+    "ember-cordova-events": "0.1.0",
     "ember-data": "^2.11.0",
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-export-application-global": "^1.0.5",
