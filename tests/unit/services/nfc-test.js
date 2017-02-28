@@ -40,10 +40,10 @@ test('properties available and enabled: status are retrieved after first access'
     success();
   };
   run(() => {
-    assert.strictEqual(service.get('availabe'), null, '`available` is null on first access');
+    assert.strictEqual(service.get('available'), null, '`available` is null on first access');
   });
   run(() => {
-    assert.strictEqual(service.get('availabe'), true, '`available` gets updated as soon as information is availabe');
+    assert.strictEqual(service.get('available'), true, '`available` gets updated as soon as information is available');
   });
 });
 
@@ -60,10 +60,10 @@ test('properties available and enabled: no nfc support', function(assert) {
   let service = this.subject({ nfc });
 
   run(() => {
-    assert.strictEqual(service.get('availabe'), null, '`available` is null on first access');
+    assert.strictEqual(service.get('available'), null, '`available` is null on first access');
   });
   run(() => {
-    assert.strictEqual(service.get('availabe'), false, '`available` is false if device returns NO_NFC');
+    assert.strictEqual(service.get('available'), false, '`available` is false if device returns NO_NFC');
     assert.strictEqual(service.get('enabled'), false, '`enabled` is false if device returns NO_NFC');
   });
 });
@@ -80,10 +80,10 @@ test('properties available and enabled: NO_NFC_OR_NFC_DISABLED (Windows)', funct
 
   let service = this.subject({ nfc });
   run(() => {
-    assert.strictEqual(service.get('availabe'), null, '`available` is null on first access');
+    assert.strictEqual(service.get('available'), null, '`available` is null on first access');
   });
   run(() => {
-    assert.strictEqual(service.get('availabe'), null, '`available` is null if device returns NO_NFC_OR_NFC_DISABLED');
+    assert.strictEqual(service.get('available'), null, '`available` is null if device returns NO_NFC_OR_NFC_DISABLED');
     assert.strictEqual(service.get('enabled'), false, '`enabled` is false if device returns NO_NFC_OR_NFC_DISABLED');
   });
 });
@@ -100,10 +100,10 @@ test('properties available and enabled: nfc disabled', function(assert) {
 
   let service = this.subject({ nfc });
   run(() => {
-    assert.strictEqual(service.get('availabe'), null, '`available` is null on first access');
+    assert.strictEqual(service.get('available'), null, '`available` is null on first access');
   });
   run(() => {
-    assert.strictEqual(service.get('availabe'), true, '`available` is true if device returns NFC_DISABLED');
+    assert.strictEqual(service.get('available'), true, '`available` is true if device returns NFC_DISABLED');
     assert.strictEqual(service.get('enabled'), false, '`enabledservice` is false if device returns NFC_DISABLED');
   });
 });

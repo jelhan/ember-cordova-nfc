@@ -37,11 +37,11 @@ export default Service.extend(Evented, {
    * Returns `true` if NFC is enabled and `false` if NFC is disabled or
    * not supported by device. Returns `null` if we don't have information (yet).
    *
-   * @prop enabledservice.get('availabe')
+   * @prop available
    * @type Boolean|null
    * @public
    */
-  availabe: computed('nfcStatus', function () {
+  available: computed('nfcPluginAvailable', 'nfcStatus', function () {
     if (!get(this, 'nfcPluginAvailable')) {
       return false;
     }
@@ -53,12 +53,9 @@ export default Service.extend(Evented, {
 
       case 'NO_NFC':
         return false;
-
-      case null:
-        this.updateNFCStatus();
-        return null;
     }
 
+    this.updateNFCStatus();
     return null;
   }),
 
@@ -70,8 +67,8 @@ export default Service.extend(Evented, {
    * @type Boolean|null
    * @public
    */
-  enabled: computed('nfcStatus', function () {
-    if (get(this, 'availabe') === false) {
+  enabled: computed('available', 'nfcStatus', function () {
+    if (get(this, 'available') === false) {
       return false;
     }
 
@@ -82,12 +79,9 @@ export default Service.extend(Evented, {
       case 'NFC_DISABLED':
       case 'NO_NFC_OR_NFC_DISABLED':
         return false;
-
-      case null:
-        this.updateNFCStatus();
-        return null;
     }
 
+    this.updateNFCStatus();
     return null;
   }),
 
@@ -161,8 +155,8 @@ export default Service.extend(Evented, {
         mimeType = mimeType.toLowerCase();
         let listener = {
           methodName,
-          method: () => {
-            this.trigger(name, ...arguments);
+          method: (event) => {
+            this.trigger(name, event);
           },
           mimeType
         };
@@ -197,8 +191,8 @@ export default Service.extend(Evented, {
   setupListeners() {
     NFC_EVENTS.forEach(({ name, methodName }) => {
       let listener = {
-        method: () => {
-          this.trigger(name, ...arguments);
+        method: (event) => {
+          this.trigger(name, event);
         },
         methodName,
         name

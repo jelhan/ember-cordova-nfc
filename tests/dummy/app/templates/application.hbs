@@ -1,5 +1,11 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+{{#if nfc.available}}
+  {{#if nfc.enabled}}
+    NFC is available and enabled.
+  {{else}}
+    NFC is avaiable but not enabled.
+  {{/if}}
+{{else}}
+  NFC is not available.
+{{/if}}
 
 {{outlet}}
