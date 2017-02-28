@@ -1,6 +1,6 @@
 {
   "name": "ember-cordova-nfc",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Ember.js service providing access to NFC related events.",
   "keywords": [
     "ember-addon"
