@@ -7,7 +7,7 @@ to consume it the ember way. It should be used together with [ember-cordova](htt
 
 ## Installation
 
-* `ember install ember-cordova`
+* `ember install ember-cordova-nfc`
 * `ember cdv:plugin add phonegap-nfc`
 
 ## Properties
